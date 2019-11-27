@@ -38,15 +38,12 @@ test:
 
 about:
   home: https://CRAN.R-project.org/package=grImport
-  license: GPL (>= 2)
+  license: GPL-2
   summary: Functions for converting, importing, and drawing PostScript  pictures in R plots.
-  license_family: GPL3
+  license_family: GPL2
+  license_file:
+    - '{{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-2'
 
 extra:
   recipe-maintainers:
     - conda-forge/r
-    - dpryan79
-    - johanneskoester
-    - bgruening
-    - daler
-    - jdblischak
