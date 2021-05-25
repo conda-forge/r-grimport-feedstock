@@ -1,5 +1,4 @@
 {% set version = "0.9-3" %}
-
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -8,37 +7,38 @@ package:
   version: {{ version|replace("-", "_") }}
 
 source:
-  fn: grImport_{{ version }}.tar.gz
   url:
-    - https://cran.r-project.org/src/contrib/grImport_{{ version }}.tar.gz
-    - https://cran.r-project.org/src/contrib/Archive/grImport/grImport_{{ version }}.tar.gz
+    - {{ cran_mirror }}/src/contrib/grImport_{{ version }}.tar.gz
+    - {{ cran_mirror }}/src/contrib/Archive/grImport/grImport_{{ version }}.tar.gz
   sha256: 6dde46bc99b46e334c144befbb7ed913bfff0f03ffd964df1fb81b8077cb3581
 
 build:
-  noarch: generic
+  merge_build_host: True  # [win]
   number: 1
-
+  noarch: generic
   rpaths:
     - lib/R/lib/
     - lib/
 
 requirements:
   build:
+    - {{ posix }}zip               # [win]
+    - cross-r-base {{ r_base }}    # [build_platform != target_platform]
+  host:
     - r-base
     - r-xml
-
   run:
     - r-base
     - r-xml
 
 test:
   commands:
-    - $R -e "library('grImport')"  # [not win]
+    - $R -e "library('grImport')"           # [not win]
     - "\"%R%\" -e \"library('grImport')\""  # [win]
 
 about:
   home: https://CRAN.R-project.org/package=grImport
-  license: GPL-2
+  license: GPL-2.0-or-later
   summary: Functions for converting, importing, and drawing PostScript  pictures in R plots.
   license_family: GPL2
   license_file:
