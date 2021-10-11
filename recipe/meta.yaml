@@ -1,4 +1,4 @@
-{% set version = "0.9-3" %}
+{% set version = "0.9-4" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,11 +10,11 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/grImport_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/grImport/grImport_{{ version }}.tar.gz
-  sha256: 6dde46bc99b46e334c144befbb7ed913bfff0f03ffd964df1fb81b8077cb3581
+  sha256: 254b39894e8ea46c63b29fccc3320b167c10f6bca5955db46aa08c70ddd63479
 
 build:
-  merge_build_host: True  # [win]
-  number: 1
+  merge_build_host: true  # [win]
+  number: 0
   noarch: generic
   rpaths:
     - lib/R/lib/
@@ -42,7 +42,7 @@ about:
   summary: Functions for converting, importing, and drawing PostScript  pictures in R plots.
   license_family: GPL2
   license_file:
-    - '{{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-2'
+    - {{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-2
 
 extra:
   recipe-maintainers:
