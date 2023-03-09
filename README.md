@@ -1,11 +1,11 @@
-About r-grimport
-================
+About r-grimport-feedstock
+==========================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/r-grimport-feedstock/blob/main/LICENSE.txt)
 
 Home: https://CRAN.R-project.org/package=grImport
 
 Package license: GPL-2.0-or-later
-
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/r-grimport-feedstock/blob/main/LICENSE.txt)
 
 Summary: Functions for converting, importing, and drawing PostScript  pictures in R plots.
 
